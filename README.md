@@ -1,2 +1,2 @@
-# hanoiskayabashny
+# HANOI TOWER %%%
 //Игра ханойская башня//
