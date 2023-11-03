@@ -133,6 +133,7 @@
             Text = "Ханойская башня";
             Load += Form1_Load;
             Paint += Form1_Paint;
+            KeyDown += Form1_KeyDown;
             ResumeLayout(false);
         }
 

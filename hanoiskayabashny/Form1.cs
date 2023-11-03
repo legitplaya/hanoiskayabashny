@@ -14,9 +14,7 @@ namespace hanoiskayabashny
         public static List<Button> takeButtons;
         public static List<Button> putButtons;
         public static List<Tower> towers;
-
         public static PictureBox temp;
-
         public static int steps;
 
 
@@ -51,9 +49,7 @@ namespace hanoiskayabashny
                 PictureBox takedRing = rings.Last();
                 rings.RemoveAt(rings.Count - 1);
                 takedRing.Top = 100;
-
                 temp = takedRing;
-
                 CheckTowersToPut();
             }
         }
@@ -130,8 +126,6 @@ namespace hanoiskayabashny
             g.DrawLine(new Pen(Color.Black, 10), 255, 155, 255, 340);
             g.DrawLine(new Pen(Color.Black, 10), 425, 155, 425, 340);
 
-
-
             foreach (Tower tower in towers)
             {
                 tower.Paint();
@@ -161,13 +155,11 @@ namespace hanoiskayabashny
                 putButton.Visible = false;
             }
             Button button = (Button)sender;
-
             int index = putButtons.FindIndex(b => b == button);
-
+            CheckTowersToTake();
             towers[index].rings.Add(temp);
-
-
-
+            towers[index].Paint();
+            Refresh();
             CheckTowersToTake();
 
             this.Refresh();
@@ -179,10 +171,8 @@ namespace hanoiskayabashny
                 MessageBox.Show("Вы прошли!", "Сделано шагов: " + steps, MessageBoxButtons.OK);
                 for (int i = 0; i < 3; i++)
                 {
-
                     takeButtons[i].Visible = false;
                     putButtons[i].Visible = false;
-
                 }
 
             }
@@ -191,6 +181,14 @@ namespace hanoiskayabashny
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                e.Handled = true;
+            }
         }
     }
 }
