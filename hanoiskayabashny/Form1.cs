@@ -8,26 +8,22 @@ using System.Windows.Forms;
 
 namespace hanoiskayabashny
 {
+
     public partial class Form1 : Form
     {
-
-        public static List<Button> takeButtons;
-        public static List<Button> putButtons;
-        public static List<Tower> towers;
-        public static PictureBox temp;
-        public static int steps;
-
+        public static int hod;
 
         public class Tower
         {
             public int placeIndex = 0;
             public Point placeCenterPoint;
-            public List<PictureBox> rings = new();
+            
             public Tower(int place)
             {
                 this.placeIndex = place;
                 this.placeCenterPoint = new Point(85 + placeIndex * 170, 282);
             }
+            public List<PictureBox> rings = new();
             public void Paint()
             {
                 int j = 0;
@@ -44,18 +40,18 @@ namespace hanoiskayabashny
                     j++;
                 }
             }
+
             public void Take()
             {
                 PictureBox takedRing = rings.Last();
                 rings.RemoveAt(rings.Count - 1);
                 takedRing.Top = 100;
                 temp = takedRing;
-                CheckTowersToPut();
+                put();
             }
         }
-
-
-        public static void CheckTowersToTake()
+        
+        public static void ttake()
         {
             for (int i = 0; i < 3; i++)
             {
@@ -65,8 +61,9 @@ namespace hanoiskayabashny
                 }
             }
         }
+        public static PictureBox temp;
 
-        public static void CheckTowersToPut()
+        public static void put()
         {
             for (int i = 0; i < 3; i++)
             {
@@ -76,6 +73,7 @@ namespace hanoiskayabashny
                 }
             }
         }
+        public static List<Tower> towers;
 
         public Form1()
         {
@@ -100,7 +98,7 @@ namespace hanoiskayabashny
                 towers[0].rings.Add(ring);
             }
 
-            CheckTowersToTake();
+            ttake();
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -131,7 +129,15 @@ namespace hanoiskayabashny
                 tower.Paint();
             }
         }
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                e.Handled = true;
+            }
+        }
 
+        public static List<Button> takeButtons;
         private void takeButtons_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
@@ -147,6 +153,7 @@ namespace hanoiskayabashny
 
             this.Refresh();
         }
+        public static List<Button> putButtons;
 
         private void putButtons_Click(object sender, EventArgs e)
         {
@@ -156,19 +163,19 @@ namespace hanoiskayabashny
             }
             Button button = (Button)sender;
             int index = putButtons.FindIndex(b => b == button);
-            CheckTowersToTake();
+            ttake();
             towers[index].rings.Add(temp);
             towers[index].Paint();
             Refresh();
-            CheckTowersToTake();
+            ttake();
 
             this.Refresh();
 
-            steps++;
+            hod++;
 
             if (towers[2].rings.Count == 3)
             {
-                MessageBox.Show("Вы прошли!", "Сделано шагов: " + steps, MessageBoxButtons.OK);
+                MessageBox.Show("Вы прошли!", "Сделано шагов: " + hod, MessageBoxButtons.OK);
                 for (int i = 0; i < 3; i++)
                 {
                     takeButtons[i].Visible = false;
@@ -183,12 +190,6 @@ namespace hanoiskayabashny
 
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Space)
-            {
-                e.Handled = true;
-            }
-        }
+        
     }
 }

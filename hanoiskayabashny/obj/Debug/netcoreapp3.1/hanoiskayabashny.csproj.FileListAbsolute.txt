@@ -1,0 +1,8 @@
+C:\Users\jenya\source\repos\hanoiskayabashny\hanoiskayabashny\obj\Debug\netcoreapp3.1\hanoiskayabashny.csproj.AssemblyReference.cache
+C:\Users\jenya\source\repos\hanoiskayabashny\hanoiskayabashny\obj\Debug\netcoreapp3.1\hanoiskayabashny.Form1.resources
+C:\Users\jenya\source\repos\hanoiskayabashny\hanoiskayabashny\obj\Debug\netcoreapp3.1\hanoiskayabashny.Properties.Resources.resources
+C:\Users\jenya\source\repos\hanoiskayabashny\hanoiskayabashny\obj\Debug\netcoreapp3.1\hanoiskayabashny.csproj.GenerateResource.cache
+C:\Users\jenya\source\repos\hanoiskayabashny\hanoiskayabashny\obj\Debug\netcoreapp3.1\hanoiskayabashny.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jenya\source\repos\hanoiskayabashny\hanoiskayabashny\obj\Debug\netcoreapp3.1\hanoiskayabashny.AssemblyInfoInputs.cache
+C:\Users\jenya\source\repos\hanoiskayabashny\hanoiskayabashny\obj\Debug\netcoreapp3.1\hanoiskayabashny.AssemblyInfo.cs
+C:\Users\jenya\source\repos\hanoiskayabashny\hanoiskayabashny\obj\Debug\netcoreapp3.1\hanoiskayabashny.csproj.CoreCompileInputs.cache
